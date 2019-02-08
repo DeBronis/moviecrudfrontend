@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import "../App.css";
+import { Link } from "react-router-dom";
 
 class Bodybackground extends Component {
   render() {
     const movies = this.props.movies.map(movie => {
       return (
-        <li>
-          {movie.title}
-          {movie.posterurl}
-        </li>
+        <button>
+          <Link to={`/movie/${movie.id}`}>
+            {movie.title}
+            <img className="bgi" src={movie.posterurl} />
+          </Link>
+        </button>
       );
     });
     return (
